@@ -5,4 +5,6 @@
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
 CAP_PLUGIN(FileUploadPlugin, "FileUpload",
            CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(uploadFile, CAPPluginReturnPromise);
+
 )
