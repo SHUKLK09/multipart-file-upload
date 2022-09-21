@@ -78,9 +78,9 @@ public class FileUpload {
         HttpRequest request =
         requestFactory.buildPostRequest( new GenericUrl(urlString), content);
         HttpResponse response = request.execute();
+        JSObject output = this.handleResponse(response);
 
-
-        return handleResponse(response);
+        return output;
     }
 
     public String getMimeType(String url) {
@@ -94,21 +94,18 @@ public class FileUpload {
 
     private JSObject handleResponse(HttpResponse response){
         var output = new JSObject();
-        output.put("status", response.getStatusCode());
-        output.put("headers", response.getHeaders());
+       
         try {
+            output.put("status", response.getStatusCode());
+            output.put("headers", response.getHeaders());    
             String contentType = response.getContentType();
+            String data = response.getContent();
+
             var json =  response.parseAsString();
             output.put("data", response.parseAsString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        String result = new String(response.getContent(), "UTF-8");
-//
-//        if (result != null){
-//            output.put("data", parseJSON(result));
-//        }
 
         return output;
     }
