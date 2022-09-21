@@ -39,12 +39,12 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 ### uploadFile(...)
 
 ```typescript
-uploadFile(options: { url: string; headers: any; params: any; filePath: string; fileKey: string; fileData: any; }) => Promise<{ output: { string: any; }; }>
+uploadFile(options: { url: string; headers?: any; params: any; filePath: string; fileKey?: string; }) => Promise<{ output: { string: any; }; }>
 ```
 
-| Param         | Type                                                                                                       |
-| ------------- | ---------------------------------------------------------------------------------------------------------- |
-| **`options`** | <code>{ url: string; headers: any; params: any; filePath: string; fileKey: string; fileData: any; }</code> |
+| Param         | Type                                                                                          |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| **`options`** | <code>{ url: string; headers?: any; params: any; filePath: string; fileKey?: string; }</code> |
 
 **Returns:** <code>Promise&lt;{ output: { string: any; }; }&gt;</code>
 

@@ -44,7 +44,6 @@ import Capacitor
             if error != nil {
                 return
             }
-
             call.resolve(self.handleResponse(data, httpUrlResponse as! HTTPURLResponse))
         }.resume()
     }
@@ -106,11 +105,11 @@ import Capacitor
     }
 
     private func parseJson(_ data: Data) -> Any {
-  do {
-    return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-  } catch {
-    return error.localizedDescription
-  }
+    do {
+        return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+    } catch {
+        return error.localizedDescription
+    }
 }
 
     private func loadFileFromLocalPath(_ localFilePath: String) ->Data? {
