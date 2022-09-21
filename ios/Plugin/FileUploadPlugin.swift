@@ -9,13 +9,6 @@ import Capacitor
 public class FileUploadPlugin: CAPPlugin {
     private let implementation = FileUpload()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
-    }
-
     @objc func uploadFile(_ call: CAPPluginCall) {
 
         debugPrint(call)

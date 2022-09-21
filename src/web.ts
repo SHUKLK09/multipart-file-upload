@@ -10,13 +10,5 @@ export class FileUploadWeb extends WebPlugin implements FileUploadPlugin {
     console.log('FileUpload', options);
     throw new Error('Method not implemented.');
   }
-  
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
-  }
-  
-
-
 
 }

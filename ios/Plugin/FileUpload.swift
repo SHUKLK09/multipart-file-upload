@@ -2,10 +2,6 @@ import Foundation
 import Capacitor
 
 @objc public class FileUpload: NSObject {
-    @objc public func echo(_ value: String) -> String {
-        print(value)
-        return value
-    }
 
     @objc func uploadFile(_ call: CAPPluginCall) throws {
 
@@ -47,41 +43,6 @@ import Capacitor
             call.resolve(self.handleResponse(data, httpUrlResponse as! HTTPURLResponse))
         }.resume()
     }
-
-//    @objc func uploadFile(url: String, headers: [String: String], params: [String: String], filePath: String, fileKey: String, fileData: Data?) {
-//
-//        debugPrint("uploadImage");
-//        // your image from Image picker, as of now I am picking image from the bundle
-//
-//        var urlRequest = URLRequest(url: URL(string: url)!)
-//        urlRequest.allHTTPHeaderFields = headers
-//        urlRequest.httpMethod = "post"
-//
-//        let docData = self.loadFileFromLocalPath(filePath)
-//
-//        let bodyBoundary = "--------------------------\(UUID().uuidString)"
-//        urlRequest.addValue("multipart/form-data; boundary=\(bodyBoundary)", forHTTPHeaderField: "Content-Type")
-//
-//        let requestData = createBodyWithParameters(parameters: params, filePathKey: fileKey, imageDataKey: docData, boundary: bodyBoundary, filePath: filePath)
-//        urlRequest.addValue("\(requestData.count)", forHTTPHeaderField: "content-length")
-//        urlRequest.httpBody = requestData
-//
-//        URLSession.shared.dataTask(with: urlRequest) { (data, httpUrlResponse, error) in
-//            if(error == nil && data != nil && data?.count != 0){
-//                do {
-//                    let str = try String(decoding: data!, as: UTF8.self)
-//
-//                    //                        let response = try JSONDecoder().decode(ImageResponse.self, from: data!)
-//                    print(str)
-//                }
-//
-//                catch let decodingError {
-//                    debugPrint(decodingError)
-//                }
-//
-//            }
-//        }.resume()
-//    }
 
     private func handleResponse(_ data: Data?, _ response: HTTPURLResponse) -> [String:Any] {
         var output = [:] as [String:Any]

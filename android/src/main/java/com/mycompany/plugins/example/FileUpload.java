@@ -92,11 +92,6 @@ public class FileUpload {
         return type;
     }
 
-    public String echo(String value) {
-        Log.i("Echo", value);
-        return value;
-    }
-
     private JSObject handleResponse(HttpResponse response){
         var output = new JSObject();
         output.put("status", response.getStatusCode());
