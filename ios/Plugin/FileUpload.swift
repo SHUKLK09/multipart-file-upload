@@ -74,13 +74,17 @@ import Capacitor
 }
 
     private func loadFileFromLocalPath(_ localFilePath: String) ->Data? {
-        let updatedPath = localFilePath.replacingOccurrences(of: "file:///", with: "")
-        let url = URL(fileURLWithPath: updatedPath)
+        // let updatedPath = localFilePath.replacingOccurrences(of: "file:///", with: "")
 
+        guard let url = URL(string: localFilePath) else {
+            debugPrint("Failed to get file data")
+            return nil
+        }
         do {
             let data = try Data(contentsOf: url)
             return data
         } catch {
+            debugPrint(error)
             debugPrint("Failed to get file data")
             return nil
         }
