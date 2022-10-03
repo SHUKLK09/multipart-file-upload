@@ -41,4 +41,23 @@ public class FileUploadPlugin extends Plugin {
             call.reject(e.getClass().getSimpleName(), e);
         }
     }
+
+    @PluginMethod
+    public void getPath(PluginCall call) {
+        System.out.println(call.toString());
+        try {
+            JSObject response = implementation.getPath(call);
+            System.out.println(response);
+            call.resolve(response);
+        } catch (IOException e) {
+            System.out.println(e.toString());
+            JSObject error = new JSObject();
+            error.put("status", e.status);
+            error.put("message", e.message);
+            error.put("data", e.content);
+            call.reject(error);
+        } catch (Exception e) {
+            call.reject(e.getClass().getSimpleName(), e);
+        }
+    }
 }

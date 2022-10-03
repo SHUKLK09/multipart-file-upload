@@ -11,4 +11,11 @@ export class FileUploadWeb extends WebPlugin implements FileUploadPlugin {
     throw new Error('Method not implemented.');
   }
 
+  getPath(options: {contentURI: string}): Promise<{ string: any } > {
+    console.log('getPath', options);
+
+    throw new Error('Method not implemented.');
+  }
+
+
 }

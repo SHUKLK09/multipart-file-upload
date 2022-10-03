@@ -23,4 +23,9 @@ public class FileUploadPlugin: CAPPlugin {
             call.reject(error.localizedDescription)
         }
     }
+
+    @objc func getPath(_ call: CAPPluginCall) {
+        debugPrint(call)
+        call.reject({error: 'Method not implemented'})
+    }
 }

@@ -3,6 +3,10 @@ import Capacitor
 
 @objc public class FileUpload: NSObject {
 
+    @objc func getPath(_ call: CAPPluginCall) {
+        return
+    }
+
     @objc func uploadFile(_ call: CAPPluginCall) throws {
 
         debugPrint("uploadImage");

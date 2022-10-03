@@ -32,6 +32,15 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 
 public class FileUpload {
 
+    public JSObject getPath(PluginCall call) {
+        String contentURI = call.getString("contentURI");
+        DocumentFile documentFile = DocumentFile.fromFile(new File(uri.getPath()));
+        String fileURI = documentFile.getUri().toString();
+        var output = new JSObject();
+        output.put("path", output);
+        return output;
+    }
+
     public JSObject uploadFile(PluginCall call) throws IOException, URISyntaxException, JSONException {
         String urlString = call.getString("url");
         String filePath = call.getString("filePath");
