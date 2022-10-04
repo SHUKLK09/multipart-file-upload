@@ -13,28 +13,12 @@ npx cap sync
 
 <docgen-index>
 
-* [`getPath(...)`](#getpath)
 * [`uploadFile(...)`](#uploadfile)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
-
-### getPath(...)
-
-```typescript
-getPath(options: { contentURI: string; }) => Promise<{ string: any; }>
-```
-
-| Param         | Type                                 |
-| ------------- | ------------------------------------ |
-| **`options`** | <code>{ contentURI: string; }</code> |
-
-**Returns:** <code>Promise&lt;{ string: any; }&gt;</code>
-
---------------------
-
 
 ### uploadFile(...)
 
