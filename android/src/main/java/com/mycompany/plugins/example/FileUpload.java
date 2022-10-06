@@ -34,11 +34,13 @@ public class FileUpload {
 
        public JSObject uploadFile(PluginCall call) throws IOException, URISyntaxException, JSONException {
         String urlString = call.getString("url");
-        String filePath = call.getString("filePath");
+        String path = call.getString("filePath");
         String fileKey = call.getString("fileKey", "file");
         JSObject headers = call.getObject("headers", new JSObject());
         JSObject params = call.getObject("params");
-    
+
+        Uri uri = Uri.parse(path);
+        String filePath = uri.getPath();
         Map<String, String> parameters = new LinkedHashMap<>();
         for (Iterator<String> it = params.keys(); it.hasNext(); ) {
             String key = it.next();
