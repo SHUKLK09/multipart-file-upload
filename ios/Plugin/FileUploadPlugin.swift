@@ -8,7 +8,7 @@ import Capacitor
 @objc(FileUploadPlugin)
 public class FileUploadPlugin: CAPPlugin {
     private let implementation = FileUpload()
-
+    
     @objc func uploadFile(_ call : CAPPluginCall) {
 
         debugPrint(call)
@@ -27,6 +27,6 @@ public class FileUploadPlugin: CAPPlugin {
             try implementation.uploadFile(call)
         } catch let error {
             call.reject(error.localizedDescription)
-        
+        }
     }
-}}
+}

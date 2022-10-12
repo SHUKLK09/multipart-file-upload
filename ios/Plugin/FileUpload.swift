@@ -82,7 +82,9 @@ import Capacitor
             let data = try Data(contentsOf: url)
             return data
         } catch {
-            debugPrint(error)debugPrint("Failed to get file data")return nil
+            debugPrint(error)
+            debugPrint("Failed to get file data")
+            return nil
         }
     }
 
