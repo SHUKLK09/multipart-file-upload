@@ -5,10 +5,10 @@ import com.getcapacitor.PluginCall;
 
 import org.json.*;
 
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
-import androidx.documentfile.provider.DocumentFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,6 @@ public class FileUpload {
         }
 
         String mimeType = getMimeType(filePath);
-//        String newFilePath = filePath.replace("file://", "");
         FileContent fileContent;
         try {
             String newFilePath = filePath.replace("file:", "");
@@ -68,7 +67,7 @@ public class FileUpload {
                     "Content-Disposition", String.format("form-data; name=\"%s\"", name)));
             content.addPart(part);
         }
-       
+
         MultipartContent.Part part = new MultipartContent.Part(fileContent);
         part.setHeaders(new HttpHeaders().set(
                 "Content-Disposition",
@@ -94,15 +93,14 @@ public class FileUpload {
         return type;
     }
 
+
     private JSObject handleResponse(HttpResponse response){
         var output = new JSObject();
-       
+
         try {
             output.put("status", response.getStatusCode());
-            output.put("headers", response.getHeaders());    
+            output.put("headers", response.getHeaders());
             String contentType = response.getContentType();
-            String data = response.getContent();
-
             var json =  response.parseAsString();
             output.put("data", response.parseAsString());
         } catch (IOException e) {

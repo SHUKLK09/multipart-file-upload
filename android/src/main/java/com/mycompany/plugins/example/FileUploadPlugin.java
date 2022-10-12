@@ -8,7 +8,6 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
-
 @CapacitorPlugin(name = "FileUpload")
 public class FileUploadPlugin extends Plugin {
 
@@ -21,13 +20,13 @@ public class FileUploadPlugin extends Plugin {
             JSObject response = implementation.uploadFile(call);
             System.out.println(response);
             call.resolve(response);
-        } catch (IOException e) {
-            System.out.println(e.toString());
-            JSObject error = new JSObject();
-            error.put("status", e.status);
-            error.put("message", e.message);
-            error.put("data", e.content);
-            call.reject(error);
+//        } catch (IOException e) {
+//            System.out.println(e.toString());
+//            JSObject error = new JSObject();
+//            error.put("status", e.status);
+//            error.put("message", e.message);
+//            error.put("data", e.content);
+//            call.reject(error);
         } catch (Exception e) {
             call.reject(e.getClass().getSimpleName(), e);
         }
