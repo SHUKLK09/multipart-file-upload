@@ -23,14 +23,14 @@ npx cap sync
 ### uploadFile(...)
 
 ```typescript
-uploadFile(options: { url: string; headers?: any; params: any; filePath: string; fileKey?: string; }) => Promise<{ output: { string: any; }; }>
+uploadFile(options: { url: string; headers?: any; params: any; filePath: string; fileKey?: string; }) => Promise<{ output: any; }>
 ```
 
 | Param         | Type                                                                                          |
 | ------------- | --------------------------------------------------------------------------------------------- |
 | **`options`** | <code>{ url: string; headers?: any; params: any; filePath: string; fileKey?: string; }</code> |
 
-**Returns:** <code>Promise&lt;{ output: { string: any; }; }&gt;</code>
+**Returns:** <code>Promise&lt;{ output: any; }&gt;</code>
 
 --------------------
 
